@@ -1,0 +1,39 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.brands {
+  padding: 3rem 0;
+
+  &__title {
+    text-align: center;
+    font-size: 1.875rem;
+    font-weight: $font-weight-bold;
+    color: $color-primary;
+    margin-bottom: 2rem;
+  }
+
+  &__grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+  }
+
+  &__item {
+    min-width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: $color-white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    @include flex-center;
+    padding: 2rem;
+
+    img {
+      max-width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+  }
+}

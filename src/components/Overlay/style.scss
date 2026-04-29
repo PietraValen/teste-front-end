@@ -1,0 +1,13 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: $color-overlay;
+  @include flex-center;
+  z-index: 9999;
+}

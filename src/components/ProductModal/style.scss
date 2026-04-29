@@ -1,0 +1,101 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.product-modal {
+  background: $color-white;
+  width: 90%;
+  max-width: 768px;
+  border-radius: 4px;
+  position: relative;
+  padding: 3rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+
+  &__close {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 2rem;
+    color: #000;
+    line-height: 1;
+    transition: color 0.2s;
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+
+  &__content {
+    display: flex;
+    gap: 3rem;
+    
+    @include respond-to($breakpoint-md) {
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+    }
+  }
+
+  &__image-wrapper {
+    flex: 1;
+    @include flex-center;
+  }
+
+  &__image {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  &__details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__title {
+    font-size: 1.25rem;
+    color: $color-text-dark;
+    font-weight: $font-weight-regular;
+    letter-spacing: 0.05em;
+    margin-bottom: 1.5rem;
+  }
+
+  &__price {
+    font-size: 2rem;
+    color: $color-text-dark;
+    font-weight: $font-weight-bold;
+    margin-bottom: 1.5rem;
+  }
+
+  &__description {
+    font-size: 0.875rem;
+    color: $color-text-dark;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+  }
+
+  &__link {
+    font-size: 0.75rem;
+    color: $color-secondary;
+    font-weight: $font-weight-semibold;
+    margin-bottom: 2rem;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    gap: 1rem;
+
+    @include respond-to(480px) {
+      flex-direction: column;
+    }
+  }
+
+  &__buy-btn {
+    flex: 1;
+  }
+}

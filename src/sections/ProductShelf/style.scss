@@ -1,0 +1,122 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.product-shelf {
+  padding: 3rem 0;
+
+  &__header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  &__title {
+    font-size: 1.875rem;
+    font-weight: $font-weight-bold;
+    color: $color-primary;
+    margin-bottom: 2rem;
+
+    // Line across the title effect
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &::before, &::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #EBEBEB;
+      margin: 0 2rem;
+    }
+  }
+
+  &__tabs {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #EBEBEB;
+  }
+
+  &__tab {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    color: $color-text-medium;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+
+    &.active, &:hover {
+      color: $color-primary;
+      font-weight: $font-weight-bold;
+    }
+    &.active {
+      border-bottom-color: $color-primary;
+    }
+  }
+
+  &__carousel-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  &__grid {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 1rem 0;
+    scroll-behavior: smooth;
+
+    /* Hide scrollbar */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__card-wrapper {
+    flex: 0 0 calc(25% - 1.125rem);
+    min-width: 280px;
+    scroll-snap-align: start;
+
+    @include respond-to($breakpoint-lg) {
+      flex: 0 0 calc(50% - 0.75rem);
+    }
+    @include respond-to($breakpoint-sm) {
+      flex: 0 0 100%;
+    }
+  }
+
+  &__arrow {
+    background: transparent;
+    border: none;
+    font-size: 2rem;
+    color: $color-text-dark;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    padding: 0.5rem;
+
+    &:hover {
+      color: $color-primary;
+    }
+
+    &.left {
+      left: -2rem;
+    }
+
+    &.right {
+      right: -2rem;
+    }
+  }
+
+  &__loading, &__error {
+    text-align: center;
+    padding: 2rem;
+    color: $color-text-medium;
+  }
+}
