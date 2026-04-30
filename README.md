@@ -48,5 +48,3 @@ Para rodar o ESLint e verificar se há erros de formatação ou de código:
 ```bash
 npm run lint
 ```
-
-> **Nota:** Para detalhes arquiteturais, estrutura de pastas e decisões técnicas, consulte o arquivo [TECHNICAL_DOCUMENTATION.md](./TECHNICAL_DOCUMENTATION.md).
