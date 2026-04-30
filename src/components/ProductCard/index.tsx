@@ -9,18 +9,17 @@ interface ProductCardProps {
 }
 
 export const ProductCard: React.FC<ProductCardProps> = ({ product, onClick }) => {
-  // Simulação de preço antigo (10% a mais) e parcelamento (2x)
-  const oldPrice = product.price * 1.1;
+  const oldPrice = product.price * 1.1; // Figma mockup
   const installment = product.price / 2;
 
+  // Renderiza no padrao mockup do Figma pixel perfect
   return (
-    <div className="product-card">
+    <div className="product-card" onClick={onClick}>
       <div className="product-card__image-container">
         <img src={product.photo} alt={product.productName} className="product-card__image" />
       </div>
       
       <div className="product-card__info">
-        <h3 className="product-card__title">{product.productName}</h3>
         <p className="product-card__desc">{product.descriptionShort}</p>
         
         <p className="product-card__old-price">{formatPrice(oldPrice)}</p>
@@ -33,7 +32,10 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onClick }) =>
         <p className="product-card__shipping">Frete grátis</p>
       </div>
 
-      <Button className="product-card__btn" onClick={onClick}>Comprar</Button>
+      <button className="product-card__btn" onClick={(e) => {
+        e.stopPropagation();
+        onClick();
+      }}>Comprar</button>
     </div>
   );
 };

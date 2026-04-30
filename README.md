@@ -1,73 +1,52 @@
-# React + TypeScript + Vite
+# Econverse - E-commerce Front-end Test
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este é o projeto de teste front-end para a Econverse, focado em criar uma interface de e-commerce responsiva e *pixel-perfect* seguindo o design do Figma.
 
-Currently, two official plugins are available:
+## Tecnologias Utilizadas
+- React 19
+- TypeScript
+- Vite
+- SCSS / Sass
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Pré-requisitos
+Certifique-se de ter o [Node.js](https://nodejs.org/) instalado na sua máquina (versão 18 ou superior recomendada).
 
-## React Compiler
+## Instruções de Instalação
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1. Clone o repositório ou faça o download dos arquivos.
+2. Acesse a pasta do projeto no terminal:
+   ```bash
+   cd teste-front-end
+   ```
+3. Instale as dependências do projeto:
+   ```bash
+   npm install
+   ```
 
-## Expanding the ESLint configuration
+## Como Rodar o Projeto (Desenvolvimento)
+Para iniciar o servidor local de desenvolvimento com Hot Module Replacement (HMR):
+```bash
+npm run dev
+```
+Acesse `http://localhost:5173` no seu navegador.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Como Compilar (Build)
+Para gerar os arquivos otimizados para produção:
+```bash
+npm run build
+```
+Isso criará uma pasta `dist` com os arquivos minificados prontos para deploy.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Como Testar a Build Localmente
+Após realizar o build, você pode visualizar a versão de produção localmente com:
+```bash
+npm run preview
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Linter e Verificação de Código
+Para rodar o ESLint e verificar se há erros de formatação ou de código:
+```bash
+npm run lint
 ```
+
+> **Nota:** Para detalhes arquiteturais, estrutura de pastas e decisões técnicas, consulte o arquivo [TECHNICAL_DOCUMENTATION.md](./TECHNICAL_DOCUMENTATION.md).

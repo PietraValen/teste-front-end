@@ -3,43 +3,66 @@
 
 .header {
   background-color: $color-white;
-  border-bottom: 1px solid $color-border;
   width: 100%;
+  font-family: $font-family;
 
   &__topbar {
     border-bottom: 1px solid #F0F0F0;
-    padding: 0.5rem 0;
-    font-size: 0.75rem;
+    padding: 6px 0;
+    font-size: 12px;
     color: $color-text-light;
   }
 
   &__topbar-inner {
-    @include flex-between;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 119px;
+  }
+
+  &__topbar-item {
+    display: flex;
+    align-items: center;
+
+    span {
+      font-weight: 500;
+    }
+
+    .highlight {
+      color: $color-secondary;
+      font-weight: 600;
+    }
   }
 
   &__main {
-    padding: 1.5rem 0;
+    padding: 12px 0;
     border-bottom: 1px solid #F0F0F0;
+    box-shadow: 0px 8px 16px 0px rgba(57, 48, 19, 0.12);
   }
 
   &__main-inner {
-    @include flex-between;
-    gap: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
   &__search {
     flex: 1;
-    max-width: 600px;
+    max-width: 630px;
     position: relative;
+    margin: 0 32px;
 
     input {
       width: 100%;
-      background-color: $color-background;
+      background-color: #F6F5F2;
       border: none;
       border-radius: 10px;
-      padding: 1rem 3rem 1rem 1.5rem;
-      font-size: 0.875rem;
+      padding: 14px 48px 14px 24px;
+      font-size: 14px;
+      font-weight: 500;
+      color: $color-text-light;
       outline: none;
+      font-family: $font-family;
       
       &::placeholder {
         color: $color-text-light;
@@ -48,7 +71,7 @@
 
     button {
       position: absolute;
-      right: 1rem;
+      right: 16px;
       top: 50%;
       transform: translateY(-50%);
       color: $color-text-light;
@@ -57,37 +80,45 @@
 
   &__actions {
     display: flex;
-    gap: 1.5rem;
+    gap: 32px;
     align-items: center;
 
-    button {
-      color: $color-text-light;
-      font-size: 0.875rem;
+    img {
+      width: 32px;
+      height: 32px;
+      cursor: pointer;
     }
   }
 
   &__nav {
-    padding: 1rem 0;
+    padding: 11px 0;
   }
 
   &__nav-inner {
     ul {
-      @include flex-between;
+      display: flex;
+      justify-content: center;
+      gap: 91px;
+      list-style: none;
       width: 100%;
 
       li {
+        display: flex;
+        align-items: center;
+
         a {
-          font-size: 0.875rem;
+          font-size: 12px;
           color: $color-text-light;
-          font-weight: $font-weight-semibold;
-          letter-spacing: 0.05em;
+          font-weight: 600;
+          text-transform: uppercase;
+          text-decoration: none;
 
           &:hover {
-            color: $color-primary;
+            color: $color-secondary;
           }
 
-          &.highlight {
-            color: $color-primary;
+          &.highlight-primary {
+            color: $color-secondary; /* in Figma "Ofertas do dia" is #3019b2 */
           }
         }
       }

@@ -2,55 +2,71 @@
 @use '../../styles/mixins' as *;
 
 .product-shelf {
-  padding: 3rem 0;
+  padding-top: 34px;
+  padding-bottom: 74px;
+  background-color: $color-background;
 
   &__header {
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 2px;
   }
 
   &__title {
-    font-size: 1.875rem;
-    font-weight: $font-weight-bold;
-    color: $color-primary;
-    margin-bottom: 2rem;
-
-    // Line across the title effect
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 30px;
+    font-weight: 700;
+    color: $color-secondary; /* Rosa (#F71963) */
+    margin-bottom: 30px;
 
     &::before, &::after {
       content: '';
       flex: 1;
       height: 1px;
-      background: #EBEBEB;
-      margin: 0 2rem;
+      background: #DEDEDE;
     }
+  }
+
+  &__title::before {
+    margin-right: 34px;
+  }
+
+  &__title::after {
+    margin-left: 34px;
   }
 
   &__tabs {
     display: flex;
     justify-content: center;
-    gap: 2rem;
-    flex-wrap: wrap;
-    border-bottom: 1px solid #EBEBEB;
+    align-items: center;
+    gap: 0; 
+    border: 1px solid #BDBDBD;
+    max-width: 1160px;
+    margin: 0 auto;
+    border-radius: 0px; 
+    padding: 0;
   }
 
   &__tab {
-    padding: 0.5rem 1rem;
-    font-size: 0.875rem;
-    color: $color-text-medium;
+    padding: 12px 20px;
+    font-size: 16px;
+    color: #3B3B3B;
     cursor: pointer;
-    border-bottom: 2px solid transparent;
+    font-weight: 400;
+    text-transform: uppercase;
     transition: all 0.2s;
+    border-right: 1px solid #BDBDBD;
+    flex: 1;
+    text-align: center;
+
+    &:last-child {
+      border-right: none;
+    }
 
     &.active, &:hover {
-      color: $color-primary;
-      font-weight: $font-weight-bold;
-    }
-    &.active {
-      border-bottom-color: $color-primary;
+      color: $color-secondary;
+      font-weight: 700;
     }
   }
 
@@ -58,17 +74,18 @@
     position: relative;
     display: flex;
     align-items: center;
+    max-width: 1270px;
+    margin: 0 auto;
   }
 
   &__grid {
     display: flex;
-    gap: 1.5rem;
+    gap: 62px; /* Margin entre cards baseado no width: 1270 e 4 cards de 270px (= 1080) sobrando 190. 190/3 = 63.3 */ /* Baseado no figma width total: 1270 */
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    padding: 1rem 0;
+    padding: 30px 0;
     scroll-behavior: smooth;
 
-    /* Hide scrollbar */
     scrollbar-width: none;
     -ms-overflow-style: none;
     &::-webkit-scrollbar {
@@ -77,46 +94,36 @@
   }
 
   &__card-wrapper {
-    flex: 0 0 calc(25% - 1.125rem);
-    min-width: 280px;
+    flex: 0 0 270px;
+    min-width: 270px;
     scroll-snap-align: start;
-
-    @include respond-to($breakpoint-lg) {
-      flex: 0 0 calc(50% - 0.75rem);
-    }
-    @include respond-to($breakpoint-sm) {
-      flex: 0 0 100%;
-    }
   }
 
   &__arrow {
     background: transparent;
     border: none;
-    font-size: 2rem;
-    color: $color-text-dark;
     cursor: pointer;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     z-index: 2;
-    padding: 0.5rem;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #404040;
 
-    &:hover {
-      color: $color-primary;
+    img {
+      width: 32px;
+      height: 32px;
     }
 
     &.left {
-      left: -2rem;
+      left: -47px;
     }
 
     &.right {
-      right: -2rem;
+      right: -47px;
     }
-  }
-
-  &__loading, &__error {
-    text-align: center;
-    padding: 2rem;
-    color: $color-text-medium;
   }
 }

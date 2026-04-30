@@ -4,25 +4,31 @@
 .product-card {
   background: $color-white;
   border-radius: 10px;
-  padding: 1.5rem;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  padding: 20px;
+  box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.12); /* Shadow exata do Figma */
   display: flex;
   flex-direction: column;
   transition: box-shadow 0.2s;
-  height: 100%;
+  height: 500px;
+  width: 270px;
+  position: relative;
 
   &:hover {
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.16);
   }
 
   &__image-container {
-    height: 200px;
-    @include flex-center;
-    margin-bottom: 1rem;
+    height: 228px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    width: 100%;
   }
 
   &__image {
     max-height: 100%;
+    max-width: 100%;
     object-fit: contain;
   }
 
@@ -30,52 +36,70 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-  }
-
-  &__title {
-    font-size: 0.875rem;
-    font-weight: $font-weight-regular;
-    color: $color-text-dark;
-    margin-bottom: 0.25rem;
+    text-align: left;
   }
 
   &__desc {
-    font-size: 0.75rem;
-    color: $color-text-light;
-    margin-bottom: 1rem;
+    font-size: 15px;
+    font-weight: 300;
+    color: #3F3F40;
+    margin-bottom: 12px;
+    line-height: normal;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
 
+  &__title {
+    display: none; /* No figma só mostra descriptionShort */
+  }
+
   &__old-price {
-    font-size: 0.875rem;
-    color: #B5B5B6;
+    font-size: 16px;
+    color: #808080;
     text-decoration: line-through;
-    margin-bottom: 0.25rem;
+    margin-bottom: 6px;
+    font-weight: 400;
   }
 
   &__price {
-    font-size: 1.25rem;
-    font-weight: $font-weight-bold;
-    color: $color-text-dark;
-    margin-bottom: 0.25rem;
+    font-size: 20px;
+    font-weight: 700;
+    color: #3F3F40;
+    margin-bottom: 8px;
   }
 
   &__installment {
-    font-size: 0.75rem;
-    color: $color-text-dark;
-    margin-bottom: 0.5rem;
+    font-size: 12px;
+    color: #3F3F40;
+    margin-bottom: 7px;
+    font-weight: 400;
   }
 
   &__shipping {
-    font-size: 0.75rem;
-    color: $color-primary;
-    margin-bottom: 1rem;
+    font-size: 12px;
+    color: $color-secondary; /* Rosa Econverse */
+    margin-bottom: 14px;
+    font-weight: 400;
   }
 
   &__btn {
     width: 100%;
+    background-color: $color-secondary;
+    color: $color-white;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 4px;
+    padding: 12px;
+    border: none;
+    cursor: pointer;
+    margin-top: auto;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 0.9;
+    }
   }
 }

@@ -16,15 +16,15 @@ export const Header = () => {
         <div className="container header__topbar-inner">
           <div className="header__topbar-item">
             <img src={checkIcon} alt="Check" style={{ width: 16, marginRight: 8, verticalAlign: 'middle' }} />
-            <span>Compra 100% segura</span>
+            <span>Compra <strong className="highlight">100% segura</strong></span>
           </div>
           <div className="header__topbar-item">
             <img src={truckIcon} alt="Frete" style={{ width: 16, marginRight: 8, verticalAlign: 'middle' }} />
-            <span><strong>Frete grátis</strong> acima de R$ 200</span>
+            <span><strong className="highlight">Frete grátis</strong> acima de R$ 200</span>
           </div>
           <div className="header__topbar-item">
             <img src={creditIcon} alt="Cartão" style={{ width: 16, marginRight: 8, verticalAlign: 'middle' }} />
-            <span><strong>Parcele</strong> suas compras</span>
+            <span><strong className="highlight">Parcele</strong> suas compras</span>
           </div>
         </div>
       </div>
@@ -61,8 +61,16 @@ export const Header = () => {
             <li><a href="#">LIVROS</a></li>
             <li><a href="#">MODA</a></li>
             <li><a href="#">LANÇAMENTOS</a></li>
-            <li><a href="#" className="highlight">OFERTAS DO DIA</a></li>
-            <li><a href="#">ASSINATURA</a></li>
+            <li><a href="#" className="highlight-primary">OFERTAS DO DIA</a></li>
+            <li>
+              <a href="#" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M2 4l3 12h14l3-12-6 7-4-7-4 7-6-7z" />
+                  <path d="M3 20h18" />
+                </svg>
+                ASSINATURA
+              </a>
+            </li>
           </ul>
         </div>
       </nav>
